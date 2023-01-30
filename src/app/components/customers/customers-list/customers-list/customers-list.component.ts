@@ -22,7 +22,6 @@ export class CustomersListComponent implements OnInit{
       this.customers = customers;
       },
       error:(response) => {
-      console.log(response)
       }
     })
   }

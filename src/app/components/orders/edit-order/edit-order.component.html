@@ -1,1 +1,45 @@
-<p>edit-order works!</p>
+<div class="container my-4">
+    <h1>Edit Order</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="editOrder()">
+                <div class="mb-2">
+                    
+                    <label for="customerId">Customer</label>
+                    <input type="text" class="form-control" id="customerId" placeholder="Select Customer" name = "customerId" [(ngModel)] = "order.customerId">
+                </div>
+
+                <div class="mb-2">
+                    
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price" placeholder="Enter Price" name = "price" [(ngModel)] = "order.price">
+                </div>
+
+
+                <div class="mb-2">
+                    
+                    <label for="paidAt">Pay Date</label>
+                    <input type="date" class="form-control" id="paidAt" placeholder="Enter Pay Date" name = "paidAt" [(ngModel)] = "order.paidAt" >
+                </div>
+
+         
+                <div class="mb-2">
+                    
+                    <div class="custom-control custom-checkbox">
+                        <label class="custom-control-label" for="status" style="margin-right: 10px">Paid</label>
+                        <input type="checkbox" class="custom-control-input" id="status">
+                      </div>
+
+                </div>
+
+                
+                <button style="margin-right: 10px" type="button" class="btn btn-primary"> <a [routerLink]="['/orders']" style="color:black"> Back </a></button> 
+                <button style="margin-right: 10px" type="button" class="btn btn-danger" (click)="deleteOrder(order.id)">Delete </button> 
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+
+</div>
