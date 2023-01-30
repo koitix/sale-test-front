@@ -1,0 +1,31 @@
+
+<div class="container ">
+
+ <h1> Customers </h1>
+  <table class="table" *ngIf="customers && customers.length > 0" >
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">BirthDate</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Age</th>
+        <th scope="col">E-mail</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let customer of customers">
+        <th scope="row">{{customer.id}}</th>
+        <td>{{customer.name}}</td>
+        <td>{{customer.birthDate}}</td>
+        <td>{{customer.cpf}}</td>
+        <td>{{customer.age}}</td>
+        <td>{{customer.email}}</td>
+        <td><a [routerLink]="['/customers','edit',customer.id]"> Edit </a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!customers || customers.length == 0"> No Customers Found.</p>
+</div>
