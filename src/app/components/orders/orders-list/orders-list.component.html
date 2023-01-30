@@ -1,1 +1,35 @@
-<p>orders-list works!</p>
+
+<div class="container ">
+
+    <h1> Orders </h1>
+     <table class="table" *ngIf="orders && orders.length > 0" >
+       <thead>
+         <tr>
+           <th scope="col">Id</th>
+           <th scope="col">Customer</th>
+           <th scope="col">Price</th>
+           <th scope="col">Status</th>
+           <th scope="col">Created At</th>
+           <th scope="col">Paid At</th>
+           <th scope="col"></th>
+           <th scope="col"></th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor ="let order of orders">
+           <th scope="row">{{order.id}}</th>
+           <td>{{order.customerId}}</td>
+           <td>{{order.price}}</td>
+           <td>{{order.status}}</td>
+           <td>{{order.createdAt}}</td>
+           <td>{{order.paidAt}}</td>
+           <td><a [routerLink]="['/orders','edit',order.id]"> Edit </a></td>
+
+           <td><button style="margin-right: 10px" type="button" class="btn btn-danger" (click)="payOrder(order.id)">Pay </button>   </td>
+         </tr>
+       </tbody>
+     </table>
+   
+     <p *ngIf="!orders || orders.length == 0"> No Orders Found.</p>
+   </div>
+   

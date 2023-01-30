@@ -12,22 +12,26 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   getAllOrder() : Observable<Order[]>{
-    return this.http.get<Order[]>(this.baseApiUr + "/api/Order")
+    return this.http.get<Order[]>(this.baseApiUr + "/api/Order");
   }
 
   addOrder(order : Order) : Observable<Order>{
-    return this.http.post<Order>( this.baseApiUr + "/api/Order", order)
+    return this.http.post<Order>( this.baseApiUr + "/api/Order", order);
   }
 
   getOrder(id:string) : Observable<Order>{
-    return this.http.get<Order>( this.baseApiUr + "/api/Order/" + id)
+    return this.http.get<Order>( this.baseApiUr + "/api/Order/" + id);
   }
 
   editOrder(id:string, order : Order) : Observable<Order>{
-    return this.http.put<Order>( this.baseApiUr + "/api/Order/" + id, order)
+    return this.http.put<Order>( this.baseApiUr + "/api/Order/" + id, order);
   }
 
   deleteOrder(id:string) : Observable<Order>{
-    return this.http.delete<Order>( this.baseApiUr + "/api/Order/" + id)
+    return this.http.delete<Order>( this.baseApiUr + "/api/Order/" + id);
+  }
+
+  payOrder(id:string) : Observable<Order>{
+    return this.http.put<Order>( this.baseApiUr + "/api/Order/UpdatePayOrder/" + id, null);
   }
 }
